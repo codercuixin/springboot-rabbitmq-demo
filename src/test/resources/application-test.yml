@@ -1,0 +1,30 @@
+# 测试环境配置
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    
+    listener:
+      simple:
+        acknowledge-mode: manual
+        concurrency: 1
+        max-concurrency: 2
+        prefetch: 1
+
+# 禁用 Actuator
+management:
+  endpoints:
+    enabled-by-default: false
+
+# 日志配置
+logging:
+  level:
+    root: WARN
+    com.example.rabbitmq: DEBUG
+

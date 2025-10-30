@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: rabbitmq-spring-demo
+  
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    
+    # Publisher 确认配置
+    publisher-confirm-type: correlated  # 启用发布确认，correlated 模式返回确认回调
+    publisher-returns: true              # 启用消息返回（当消息无法路由时）
+    
+    # 连接超时配置
+    connection-timeout: 15000
+    
+    # 消费者配置
+    listener:
+      simple:
+        # 手动确认模式，支持异步确认
+        acknowledge-mode: manual
+        # 并发消费者数量
+        concurrency: 3
+        max-concurrency: 10
+        # 预取数量（每次从队列拉取的消息数）
+        prefetch: 10
+        # 重试配置
+        retry:
+          enabled: true
+          initial-interval: 1000
+          max-attempts: 3
+          multiplier: 2.0
+
+# 应用端口
+server:
+  port: 8080
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.example.rabbitmq: DEBUG
+    org.springframework.amqp: DEBUG
+
