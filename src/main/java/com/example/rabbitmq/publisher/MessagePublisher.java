@@ -56,7 +56,13 @@ public class MessagePublisher {
                 } else {
                     log.error("✗ [Publisher Confirm] 消息发送失败！消息ID: {}, 原因: {}", 
                             messageId, cause);
-                    // 消息未到达 Exchange，需要处理
+                    /**
+                     *  一般都是配置问题，重试也没有用
+                     *  Exchange 不存在（配置错误）
+                        ❌ 权限问题
+                        ❌ Exchange 类型配置错误
+                        ❌ Broker 端策略拒绝（如内存/磁盘限制
+                     */
                     handleConfirmFailure(correlationData, cause);
                 }
             }
