@@ -1008,15 +1008,6 @@ curl -X POST http://localhost:8080/api/messages/failures/{id}/resolve \
 
 ## 📚 相关文档
 
-### 项目文档
-
-- 📖 **[消息失败处理详细文档](docs/MESSAGE_FAILURE_HANDLING.md)** - 失败处理机制完整说明
-- 📖 **[消息失败处理重构说明](docs/MESSAGE_FAILURE_REFACTORING.md)** - 统一失败处理架构重构说明
-- 📖 **[架构设计文档](ARCHITECTURE.md)** - 系统架构和设计思路
-- 📖 **[生产环境部署指南](PRODUCTION.md)** - 生产环境最佳实践
-- 📖 **[快速开始指南](QUICKSTART.md)** - 快速上手教程
-- 📖 **[配置说明文档](docs/CONFIG_STRUCTURE.md)** - 配置详解
-
 ### 官方文档
 
 - [RabbitMQ 官方文档](https://www.rabbitmq.com/documentation.html)
